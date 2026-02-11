@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpintería Arte Brend | Tienda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+        body { font-family: 'Outfit', sans-serif; background-color: #0f0f0f; color: #fff; }
+        .wood-accent { color: #d4a373; }
+        .bg-wood { background-color: #d4a373; }
+    </style>
+</head>
+<body class="pb-20">
+
+    <header class="p-6 text-center">
+        <div class="flex justify-center mb-4">
+            <div class="w-32 h-32 bg-black rounded-full border-2 border-yellow-500 flex items-center justify-center overflow-hidden">
+                <span class="text-xs text-center p-2">ARTE BREND</span>
+            </div>
+        </div>
+        <h1 class="text-2xl font-bold tracking-wider">CARPINTERÍA ARTE BREND</h1>
+        <p class="text-gray-400 text-sm mt-2">Fabricación e instalación para el hogar y empresas</p>
+    </header>
+
+    <main class="px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
+            <div class="h-48 bg-zinc-800 flex items-center justify-center">
+                <i class="fas fa-couch text-4xl text-zinc-700"></i>
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-lg">Mesa de Centro Rústica</h3>
+                <p class="text-zinc-400 text-sm mb-4">Madera maciza tratada, ideal para salas modernas.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xl font-bold wood-accent">$1,200</span>
+                    <button onclick="addToCart('Mesa de Centro Rústica', 1200)" class="bg-wood text-black px-4 py-2 rounded-full font-bold text-sm hover:opacity-90 transition">
+                        Añadir <i class="fas fa-cart-plus ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+          <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
+            <div class="h-48 bg-zinc-800 flex items-center justify-center">
+                <i class="fas fa-couch text-4xl text-zinc-700"></i>
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-lg">Ventana de madera rustica</h3>
+                <p class="text-zinc-400 text-sm mb-4">descripcion 1.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xl font-bold wood-accent">$1,500</span>
+                    <button onclick="addToCart('Mesa de Centro Rústica', 1200)" class="bg-wood text-black px-4 py-2 rounded-full font-bold text-sm hover:opacity-90 transition">
+                        Añadir <i class="fas fa-cart-plus ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
+            <div class="h-48 bg-zinc-800 flex items-center justify-center">
+                <i class="fas fa-door-open text-4xl text-zinc-700"></i>
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold text-lg">Puerta Principal Diseño</h3>
+                <p class="text-zinc-400 text-sm mb-4">Trabajo personalizado bajo medidas específicas.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm font-medium text-yellow-500 uppercase italic">A pedido</span>
+                    <button onclick="orderCustom('Puerta Principal')" class="border border-wood wood-accent px-4 py-2 rounded-full font-bold text-sm hover:bg-wood hover:text-black transition">
+                        Cotizar por WA
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-zinc-700 p-4 flex justify-between items-center hidden">
+        <div>
+            <p class="text-xs text-gray-400">Total acumulado:</p>
+            <p id="total-price" class="text-xl font-bold wood-accent">$0</p>
+        </div>
+        <button onclick="sendWhatsApp()" class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg animate-bounce">
+            <i class="fab fa-whatsapp text-xl"></i> Pedir por WhatsApp
+        </button>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+        const phone = "5215611398335"; 
+
+        function addToCart(name, price) {
+            cart.push(name);
+            total += price;
+            document.getElementById('total-price').innerText = `$${total}`;
+            document.getElementById('cart-bar').classList.remove('hidden');
+        }
+
+        function orderCustom(item) {
+            const msg = `Hola Arte Brend! Me interesa cotizar un trabajo a pedido: ${item}`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function sendWhatsApp() {
+            const items = cart.join(", ");
+            const msg = `¡Hola! Me gustaría encargar los siguientes productos de la web: ${items}. El total es de $${total}. ¿Me confirman disponibilidad?`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
