@@ -13,100 +13,101 @@
         .bg-wood { background-color: #d4a373; }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-32">
 
-    <header class="p-6 text-center">
-        <div class="flex justify-center mb-4">
-            <div class="w-32 h-32 bg-black rounded-full border-2 border-yellow-500 flex items-center justify-center overflow-hidden">
-                <span class="text-xs text-center p-2">ARTE BREND</span>
-            </div>
+    <header class="p-8 text-center">
+        <div class="flex justify-center mb-6">
+            <img src="logo_brenda.jpeg" alt="Logo Arte Brend" class="w-40 h-40 rounded-full border-4 border-yellow-500 shadow-2xl object-cover">
         </div>
-        <h1 class="text-2xl font-bold tracking-wider">CARPINTERÍA ARTE BREND</h1>
-        <p class="text-gray-400 text-sm mt-2">Fabricación e instalación para el hogar y empresas</p>
+        <h1 class="text-3xl font-bold tracking-tighter uppercase">Carpintería Arte Brend</h1>
+        <p class="text-gray-400 text-sm mt-2 max-w-xs mx-auto italic">Fabricación e instalación para el hogar y empresas</p>
     </header>
 
-    <main class="px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <main class="px-6 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
         
-        <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
-            <div class="h-48 bg-zinc-800 flex items-center justify-center">
-                <i class="fas fa-couch text-4xl text-zinc-700"></i>
+        <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl">
+            <div class="h-56 bg-zinc-800 flex items-center justify-center">
+                <i class="fas fa-couch text-5xl text-zinc-700"></i>
             </div>
-            <div class="p-4">
-                <h3 class="font-semibold text-lg">Mesa de Centro Rústica</h3>
-                <p class="text-zinc-400 text-sm mb-4">Madera maciza tratada, ideal para salas modernas.</p>
+            <div class="p-6">
+                <h3 class="font-semibold text-xl">Mesa de Centro Rústica</h3>
+                <p class="text-zinc-500 text-sm mt-2 mb-6">Madera maciza de pino con acabado mate.</p>
                 <div class="flex justify-between items-center">
-                    <span class="text-xl font-bold wood-accent">$1,200</span>
-                    <button onclick="addToCart('Mesa de Centro Rústica', 1200)" class="bg-wood text-black px-4 py-2 rounded-full font-bold text-sm hover:opacity-90 transition">
+                    <span class="text-2xl font-bold wood-accent">$1,200</span>
+                    <button onclick="addToCart('Mesa de Centro', 1200)" class="bg-wood text-black px-5 py-2.5 rounded-full font-bold hover:scale-105 transition-transform">
                         Añadir <i class="fas fa-cart-plus ml-1"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-          <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
-            <div class="h-48 bg-zinc-800 flex items-center justify-center">
-                <i class="fas fa-couch text-4xl text-zinc-700"></i>
+        <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl">
+            <div class="h-56 bg-zinc-800 flex items-center justify-center">
+                <i class="fas fa-archive text-5xl text-zinc-700"></i>
             </div>
-            <div class="p-4">
-                <h3 class="font-semibold text-lg">Ventana de madera rustica</h3>
-                <p class="text-zinc-400 text-sm mb-4">descripcion 1.</p>
+            <div class="p-6">
+                <h3 class="font-semibold text-xl">Estante Flotante Roble</h3>
+                <p class="text-zinc-500 text-sm mt-2 mb-6">Minimalista, soporta hasta 15kg de peso.</p>
                 <div class="flex justify-between items-center">
-                    <span class="text-xl font-bold wood-accent">$1,500</span>
-                    <button onclick="addToCart('Mesa de Centro Rústica', 1200)" class="bg-wood text-black px-4 py-2 rounded-full font-bold text-sm hover:opacity-90 transition">
+                    <span class="text-2xl font-bold wood-accent">$350</span>
+                    <button onclick="addToCart('Estante Flotante', 350)" class="bg-wood text-black px-5 py-2.5 rounded-full font-bold hover:scale-105 transition-transform">
                         Añadir <i class="fas fa-cart-plus ml-1"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-lg">
-            <div class="h-48 bg-zinc-800 flex items-center justify-center">
-                <i class="fas fa-door-open text-4xl text-zinc-700"></i>
-            </div>
-            <div class="p-4">
-                <h3 class="font-semibold text-lg">Puerta Principal Diseño</h3>
-                <p class="text-zinc-400 text-sm mb-4">Trabajo personalizado bajo medidas específicas.</p>
-                <div class="flex justify-between items-center">
-                    <span class="text-sm font-medium text-yellow-500 uppercase italic">A pedido</span>
-                    <button onclick="orderCustom('Puerta Principal')" class="border border-wood wood-accent px-4 py-2 rounded-full font-bold text-sm hover:bg-wood hover:text-black transition">
-                        Cotizar por WA
-                    </button>
-                </div>
-            </div>
-        </div>
+        </main>
 
-    </main>
-
-    <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-zinc-700 p-4 flex justify-between items-center hidden">
-        <div>
-            <p class="text-xs text-gray-400">Total acumulado:</p>
-            <p id="total-price" class="text-xl font-bold wood-accent">$0</p>
+    <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-zinc-900/95 backdrop-blur-md border-t border-zinc-700 p-6 flex flex-col sm:flex-row justify-between items-center gap-4 transition-all duration-500 translate-y-full opacity-0">
+        <div class="text-center sm:text-left">
+            <p class="text-xs text-gray-400 uppercase tracking-widest">Tu pedido actual:</p>
+            <p id="total-price" class="text-2xl font-bold wood-accent">$0</p>
         </div>
-        <button onclick="sendWhatsApp()" class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg animate-bounce">
-            <i class="fab fa-whatsapp text-xl"></i> Pedir por WhatsApp
-        </button>
+        
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+            <button onclick="clearCart()" class="flex-1 sm:flex-none border border-red-500/50 text-red-500 px-4 py-3 rounded-2xl font-semibold hover:bg-red-500 hover:text-white transition">
+                <i class="fas fa-trash-alt"></i> Vaciar
+            </button>
+            <button onclick="sendWhatsApp()" class="flex-[2] sm:flex-none bg-green-600 text-white px-8 py-3 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-green-900/20">
+                <i class="fab fa-whatsapp text-xl"></i> Pedir por WhatsApp
+            </button>
+        </div>
     </div>
 
     <script>
         let cart = [];
         let total = 0;
-        const phone = "5215611398335"; 
+        const phone = "521234567890"; // 👈 TU NÚMERO AQUÍ
 
         function addToCart(name, price) {
             cart.push(name);
             total += price;
-            document.getElementById('total-price').innerText = `$${total}`;
-            document.getElementById('cart-bar').classList.remove('hidden');
+            updateCartUI();
         }
 
-        function orderCustom(item) {
-            const msg = `Hola Arte Brend! Me interesa cotizar un trabajo a pedido: ${item}`;
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        function clearCart() {
+            cart = [];
+            total = 0;
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const bar = document.getElementById('cart-bar');
+            const totalText = document.getElementById('total-price');
+            
+            totalText.innerText = `$${total.toLocaleString()}`;
+
+            if (cart.length > 0) {
+                bar.classList.remove('translate-y-full', 'opacity-0');
+            } else {
+                bar.classList.add('translate-y-full', 'opacity-0');
+            }
         }
 
         function sendWhatsApp() {
             const items = cart.join(", ");
-            const msg = `¡Hola! Me gustaría encargar los siguientes productos de la web: ${items}. El total es de $${total}. ¿Me confirman disponibilidad?`;
+            const msg = `¡Hola Emma! 👋 Me gustaría encargar: ${items}. Total: $${total}. ¿Cómo procedemos?`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
