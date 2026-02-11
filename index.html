@@ -23,8 +23,65 @@
         <p class="text-gray-400 text-sm mt-2 max-w-xs mx-auto italic">Fabricación e instalación para el hogar y empresas</p>
     </header>
 
+<div class="max-w-md mx-auto px-6 mb-10">
+    <div class="bg-zinc-900/50 border border-zinc-800 rounded-3xl p-4 backdrop-blur-sm shadow-inner">
+        <div class="flex justify-between items-center mb-2">
+            <span class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Estado del Taller</span>
+            <div class="flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-[10px] text-green-500 font-bold uppercase">Recibiendo Pedidos</span>
+            </div>
+        </div>
+        
+        <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+            <div class="bg-wood h-full rounded-full" style="width: 75%;"></div>
+        </div>
+        
+        <p class="text-xs text-zinc-400 mt-3 text-center">
+            Capacidad actual: <span class="text-white font-semibold">75%</span>. 
+            Próximas entregas para la semana del <span class="wood-accent font-bold">20 de febrero</span>.
+        </p>
+    </div>
+</div>
+
     <main class="px-6 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
         
+<section class="mt-20 px-6 max-w-4xl mx-auto">
+    <div class="flex items-center gap-4 mb-8">
+        <div class="h-[2px] bg-wood flex-grow"></div>
+        <h2 class="text-2xl font-bold tracking-widest uppercase text-center">Serrín y Gloria</h2>
+        <div class="h-[2px] bg-wood flex-grow"></div>
+    </div>
+    <p class="text-center text-zinc-400 text-sm -mt-6 mb-10 italic">Proyectos reales, de nuestro taller a tu hogar</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="row-span-2 group relative overflow-hidden rounded-2xl bg-zinc-800">
+            <img src="trabajo1.jpg" alt="Proceso" class="w-full h-full object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition duration-500">
+            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+                <p class="text-[10px] uppercase tracking-widest">En proceso</p>
+            </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl bg-zinc-800 h-40">
+            <img src="trabajo2.jpg" alt="Acabado" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl bg-zinc-800 h-40">
+            <img src="trabajo3.jpg" alt="Detalle" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+        </div>
+
+        <div class="col-span-2 group relative overflow-hidden rounded-2xl bg-zinc-800 h-48">
+            <img src="trabajo4.jpg" alt="Instalación" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+            <div class="absolute bottom-4 left-4">
+                <span class="bg-wood text-black text-[10px] font-bold px-2 py-1 rounded">INSTALACIÓN FINAL</span>
+            </div>
+        </div>
+    </div>
+</section>
+
         <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl">
             <div class="h-56 bg-zinc-800 flex items-center justify-center">
                 <i class="fas fa-couch text-5xl text-zinc-700"></i>
@@ -56,6 +113,23 @@
                 </div>
             </div>
         </div>
+
+        <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl border-t-2 border-t-yellow-500/30">
+    <div class="h-56 bg-zinc-800 flex items-center justify-center relative">
+        <i class="fas fa-tools text-5xl text-zinc-700"></i>
+        <span class="absolute top-4 right-4 bg-yellow-600 text-black text-[10px] font-bold px-2 py-1 rounded-full uppercase">Personalizado</span>
+    </div>
+    <div class="p-6">
+        <h3 class="font-semibold text-xl">Proyecto a Medida</h3>
+        <p class="text-zinc-500 text-sm mt-2 mb-6">¿Tienes una idea? La fabricamos según tus necesidades y espacio.</p>
+        <div class="flex flex-col gap-3">
+            <span class="text-sm font-medium text-yellow-500 italic">Precio según diseño</span>
+            <button onclick="orderCustom('Proyecto a Medida')" class="w-full border border-wood wood-accent py-3 rounded-2xl font-bold hover:bg-wood hover:text-black transition-all">
+                <i class="fab fa-whatsapp mr-2"></i> Cotizar por WhatsApp
+            </button>
+        </div>
+    </div>
+</div>
 
         </main>
 
@@ -107,10 +181,64 @@
 
         function sendWhatsApp() {
             const items = cart.join(", ");
-            const msg = `¡Hola Brenda! 👋 Me gustaría encargar: ${items}. Total: $${total}. ¿Cómo procedemos?`;
+            const msg = `¡Hola Arte Brend! 👋 Me gustaría encargar: ${items}. Total: $${total}. ¿Cómo procedemos?`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
+        function orderCustom(itemName) {
+    const customMsg = `¡Hola Arte Brend! 👋 Me interesa cotizar un trabajo personalizado: ${itemName}. ¿Me podrían dar más información?`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(customMsg)}`, '_blank');
+}
     </script>
-</body>
 
+    <section class="mt-20 px-6 max-w-4xl mx-auto mb-20">
+    <h2 class="text-xl font-bold tracking-widest uppercase text-center mb-10 wood-accent">La materia prima</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-zinc-900/30 border border-zinc-800 p-6 rounded-3xl text-center group hover:border-wood transition-colors">
+            <div class="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-wood transition-colors">
+                <i class="fas fa-tree text-2xl wood-accent group-hover:text-black"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Pino Nacional</h3>
+            <p class="text-xs text-zinc-500 leading-relaxed">Nuestra opción más versátil. Madera clara, resistente y perfecta para acabados rústicos o vintage.</p>
+        </div>
+
+        <div class="bg-zinc-900/30 border border-zinc-800 p-6 rounded-3xl text-center group hover:border-wood transition-colors">
+            <div class="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-wood transition-colors">
+                <i class="fas fa-crown text-2xl wood-accent group-hover:text-black"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Maderas Nobles</h3>
+            <p class="text-xs text-zinc-500 leading-relaxed">Roble, Cedro o Nogal. Para quienes buscan elegancia suprema y una durabilidad que desafía al tiempo.</p>
+        </div>
+
+        <div class="bg-zinc-900/30 border border-zinc-800 p-6 rounded-3xl text-center group hover:border-wood transition-colors">
+            <div class="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-wood transition-colors">
+                <i class="fas fa-shield-alt text-2xl wood-accent group-hover:text-black"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Acabado Premium</h3>
+            <p class="text-xs text-zinc-500 leading-relaxed">Selladores de alta gama y ceras naturales que protegen la madera contra la humedad y el desgaste.</p>
+        </div>
+
+    </div>
+</section>
+
+    <div class="fixed bottom-24 left-6 z-50">
+    <button onclick="orderEmergency()" class="group relative flex items-center justify-center w-14 h-14 bg-red-600 text-white rounded-full shadow-2xl hover:bg-red-700 transition-all duration-300 hover:w-48 overflow-hidden">
+        <div class="flex items-center justify-center w-14 h-14 shrink-0">
+            <i class="fas fa-first-aid text-xl animate-pulse"></i>
+        </div>
+        <span class="absolute left-14 whitespace-nowrap font-bold text-sm pr-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            ¿Algo se rompió?
+        </span>
+    </button>
+</div>
+
+<script>
+    function orderEmergency() {
+        const emergencyMsg = "¡Hola Arte Brend! 🚨 Tengo una emergencia con un mueble/puerta que se rompió. ¿Podrían ayudarme con una reparación?";
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(emergencyMsg)}`, '_blank');
+    }
+</script>
+<p>2026 @SantiagoPsicoDev | Autonomia Digital</p>
+</body>
 </html>
