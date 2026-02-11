@@ -78,7 +78,7 @@
     <script>
         let cart = [];
         let total = 0;
-        const phone = "521234567890"; // 👈 TU NÚMERO AQUÍ
+        const phone = "5215611398335"; 
 
         function addToCart(name, price) {
             cart.push(name);
@@ -107,9 +107,10 @@
 
         function sendWhatsApp() {
             const items = cart.join(", ");
-            const msg = `¡Hola Emma! 👋 Me gustaría encargar: ${items}. Total: $${total}. ¿Cómo procedemos?`;
+            const msg = `¡Hola Brenda! 👋 Me gustaría encargar: ${items}. Total: $${total}. ¿Cómo procedemos?`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
 </body>
+
 </html>
