@@ -3,151 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carpintería Arte Brend | Tienda</title>
+    <title>Carpintería Arte Brend | Tienda & Catálogo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
-        body { font-family: 'Outfit', sans-serif; background-color: #0f0f0f; color: #fff; }
-        .wood-accent { color: #d4a373; }
-        .bg-wood { background-color: #d4a373; }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        
+        :root {
+            --pink-main: #ff85a2; /* Rosa estético y profesional */
+            --pink-light: #fbc2eb;
+            --dark-pure: #0a0a0a;
+            --zinc-card: #141414;
+        }
+
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background-color: var(--dark-pure); 
+            color: #fff; 
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, .font-serif { font-family: 'Playfair Display', serif; }
+
+        .text-pink { color: var(--pink-main); }
+        .bg-pink { background-color: var(--pink-main); }
+        
+        /* Glassmorphism con aura rosa */
+        .pink-glass {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 133, 162, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .pink-glass:hover {
+            border-color: var(--pink-main);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 133, 162, 0.1);
+        }
+
+        /* Botón estilo Emma */
+        .btn-pink {
+            background: linear-gradient(135deg, #ff85a2 0%, #ff6384 100%);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(255, 133, 162, 0.3);
+        }
+
+        .btn-pink:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nav links con hover rosa */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -4px; left: 0;
+            background-color: var(--pink-main);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--pink-main); border-radius: 10px; }
+        /* Estilo para las virutas de aserrín rosado */
+.sawdust {
+    position: fixed;
+    top: -10px;
+    z-index: 9999;
+    pointer-events: none;
+    border-radius: 2px; /* Forma de viruta */
+    background: linear-gradient(135deg, #ff85a2, #fbc2eb); /* Degradado rosa */
+    box-shadow: 0 0 5px rgba(255, 133, 162, 0.3);
+}
     </style>
 </head>
 <body class="pb-32">
 
-    <header class="p-8 text-center">
-        <div class="flex justify-center mb-6">
-            <img src="logo_brenda.jpeg" alt="Logo Arte Brend" class="w-40 h-40 rounded-full border-4 border-yellow-500 shadow-2xl object-cover">
+    <nav class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="font-bold tracking-tighter text-pink">ARTE BREND</span>
+            <div class="flex gap-6 text-[10px] font-black uppercase tracking-widest">
+                <a href="#tienda" class="nav-link">Tienda</a>
+                <a href="#mi-trabajo" class="nav-link">Catálogo</a>
+            </div>
         </div>
-        <h1 class="text-3xl font-bold tracking-tighter uppercase">Carpintería Arte Brend</h1>
-        <p class="text-gray-400 text-sm mt-2 max-w-xs mx-auto italic">Fabricación e instalación para el hogar y empresas</p>
+    </nav>
+
+    <header class="pt-32 p-8 text-center animate__animated animate__fadeIn">
+        <div class="flex justify-center mb-8">
+            <div class="relative group">
+                <div class="absolute -inset-2 bg-pink opacity-20 rounded-full blur group-hover:opacity-40 transition duration-1000"></div>
+                <img src="logo_brenda.jpeg" alt="Logo Carpintería Arte Brend" class="relative w-40 h-40 rounded-full border-2 border-pink-main/30 shadow-2xl object-cover">
+            </div>
+        </div>
+        <h1 class="text-5xl font-bold mb-2 italic">Carpintería <span class="text-pink">Arte Brend</span></h1>
+        <p class="text-zinc-500 text-xs tracking-[0.3em] uppercase font-light">Diseño artesanal con esencia femenina</p>
     </header>
 
-<div class="max-w-md mx-auto px-6 mb-10">
-    <div class="bg-zinc-900/50 border border-zinc-800 rounded-3xl p-4 backdrop-blur-sm shadow-inner">
-        <div class="flex justify-between items-center mb-2">
-            <span class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Estado del Taller</span>
-            <div class="flex items-center gap-2">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span class="text-[10px] text-green-500 font-bold uppercase">Recibiendo Pedidos</span>
+    <div class="max-w-md mx-auto px-6 mb-20 reveal">
+        <div class="pink-glass rounded-3xl p-5 border-t-2 border-t-pink-main/20">
+            <div class="flex justify-between items-center mb-3">
+                <span class="text-[9px] uppercase tracking-widest text-zinc-400 font-bold">Estado del Taller</span>
+                <div class="flex items-center gap-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-pink"></span>
+                    </span>
+                    <span class="text-[9px] text-pink font-bold uppercase italic">Activa</span>
+                </div>
             </div>
+            <div class="w-full bg-zinc-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-pink h-full rounded-full" style="width: 75%;"></div>
+            </div>
+            <p class="text-[10px] text-zinc-500 mt-3 text-center italic">Capacidad: 50%. Agenda abierta para finales de febrero 🌸</p>
         </div>
-        
-        <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
-            <div class="bg-wood h-full rounded-full" style="width: 75%;"></div>
-        </div>
-        
-        <p class="text-xs text-zinc-400 mt-3 text-center">
-            Capacidad actual: <span class="text-white font-semibold">75%</span>. 
-            Próximas entregas para la semana del <span class="wood-accent font-bold">20 de febrero</span>.
-        </p>
     </div>
-</div>
 
-    <main class="px-6 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <main id="tienda" class="px-6 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
         
-<section class="mt-20 px-6 max-w-4xl mx-auto">
-    <div class="flex items-center gap-4 mb-8">
-        <div class="h-[2px] bg-wood flex-grow"></div>
-        <h2 class="text-2xl font-bold tracking-widest uppercase text-center">Serrín y Gloria</h2>
-        <div class="h-[2px] bg-wood flex-grow"></div>
-    </div>
-    <p class="text-center text-zinc-400 text-sm -mt-6 mb-10 italic">Proyectos reales, de nuestro taller a tu hogar</p>
-
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-        <div class="row-span-2 group relative overflow-hidden rounded-2xl bg-zinc-800">
-            <img src="trabajo1.jpg" alt="Proceso" class="w-full h-full object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition duration-500">
-            <div class="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-                <p class="text-[10px] uppercase tracking-widest">En proceso</p>
+        
+        <div class="pink-glass rounded-[2rem] overflow-hidden group">
+            <div class="h-56 bg-zinc-900 flex items-center justify-center relative">
+                <i class="fas fa-couch text-5xl text-zinc-800"></i>
+                <img src="trabajo1.jpg" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-40 transition-opacity" alt="Mesa de centro">
+            </div>
+            <div class="p-8 text-center">
+                <h3 class="text-xl font-bold mb-1">Mesa Rústica</h3>
+                <p class="text-zinc-500 text-xs mb-6">Pino macizo con acabados de alta gama.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-black text-pink">$1,200</span>
+                    <button onclick="addToCart('Mesa Rústica', 1200)" class="btn-pink px-6 py-2.5 rounded-full font-bold text-xs">AÑADIR</button>
+                </div>
             </div>
         </div>
 
-        <div class="group relative overflow-hidden rounded-2xl bg-zinc-800 h-40">
-            <img src="trabajo2.jpg" alt="Acabado" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+        <div class="pink-glass rounded-[2rem] overflow-hidden group">
+            <div class="h-56 bg-zinc-900 flex items-center justify-center relative">
+                <i class="fas fa-archive text-5xl text-zinc-800"></i>
+                <img src="trabajo2.jpg" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-40 transition-opacity" alt="Estante flotante">
+            </div>
+            <div class="p-8 text-center">
+                <h3 class="text-xl font-bold mb-1">Estante Flotante</h3>
+                <p class="text-zinc-500 text-xs mb-6">Minimalismo y resistencia para tu hogar.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-black text-pink">$350</span>
+                    <button onclick="addToCart('Estante Flotante', 350)" class="btn-pink px-6 py-2.5 rounded-full font-bold text-xs">AÑADIR</button>
+                </div>
+            </div>
         </div>
 
-        <div class="group relative overflow-hidden rounded-2xl bg-zinc-800 h-40">
-            <img src="trabajo3.jpg" alt="Detalle" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+        <div class="sm:col-span-2 pink-glass rounded-[2.5rem] p-10 text-center border-dashed border-2 border-pink-main/30 bg-gradient-to-b from-pink-main/5 to-transparent">
+            <h3 class="text-3xl font-bold mb-4 italic">¿Proyecto a medida?</h3>
+            <p class="text-zinc-400 text-sm mb-8 max-w-sm mx-auto font-light">Hacemos realidad tu idea con la delicadeza y precisión que nos caracteriza.</p>
+            <button onclick="orderCustom('Proyecto Especial')" class="w-full sm:w-auto border-2 border-pink-main text-pink px-12 py-4 rounded-full font-bold hover:bg-pink hover:text-white transition-all text-xs tracking-widest">
+                <i class="fab fa-whatsapp mr-2"></i> COTIZAR POR WHATSAPP
+            </button>
         </div>
+    </main>
+    <section id="sobre-mi" class="mt-32 px-6 max-w-4xl mx-auto reveal">
+    <div class="pink-glass rounded-[3rem] overflow-hidden p-8 md:p-12 border-l-4 border-l-pink-main">
+        <div class="flex flex-col md:flex-row gap-10 items-center">
+            <div class="w-48 h-48 shrink-0 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                <img src="logo_brenda.jpeg" alt="Mtra. Brenda García" class="w-full h-full object-cover border-2 border-pink-main/20">
+            </div>
+            
+            <div class="flex-grow">
+                <h2 class="text-3xl font-bold italic mb-1">Mtra. Brenda García</h2>
+                <p class="text-pink font-black text-[10px] tracking-[0.3em] uppercase mb-6">Conocida como "Brenda La Carpintera"</p>
+                
+                <div class="space-y-4 text-zinc-400 text-sm leading-relaxed font-light">
+                    <p>
+                        <strong class="text-white font-semibold italic">Especialista en Diseño y Fabricación de Mobiliario</strong> con 11 años de experiencia. Mi formación incluye una carrera profesional y una maestría en el ramo de la carpintería, lo que me permite abordar cada proyecto con rigor técnico y visión creativa.
+                    </p>
+                    <p>
+                        Durante 5 años, perfeccioné mis habilidades en la industria de muebles de madera de alta gama, experiencia que hoy en día he decidido dar el paso para así emprender mi propio taller: <span class="text-white font-bold">Carpintería Arte Brend</span>.
+                    </p>
+                    <p>
+                        Desde hace 6 años, lidero este taller donde la funcionalidad del mueble se eleva a la categoría de pieza de arte. Como mujer trans y profesional de la madera, compagino mi trabajo técnico con la creación de contenido educativo en <span class="text-pink"><i class="fab fa-tiktok"></i> TikTok</span>, donde busco profesionalizar el oficio mediante tutoriales de nivel básico, intermedio y avanzado.
+                    </p>
+                </div>
 
-        <div class="col-span-2 group relative overflow-hidden rounded-2xl bg-zinc-800 h-48">
-            <img src="trabajo4.jpg" alt="Instalación" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
-            <div class="absolute bottom-4 left-4">
-                <span class="bg-wood text-black text-[10px] font-bold px-2 py-1 rounded">INSTALACIÓN FINAL</span>
+                <div class="mt-8">
+                    <a href="https://www.tiktok.com/@brenda.la.carpintera?_r=1&_t=ZS-93tUzCVB06r" target="_blank" class="inline-flex items-center gap-2 text-[10px] font-black tracking-widest uppercase text-pink hover:gap-4 transition-all">
+                        Aprende con ella en TikTok <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-        <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl">
-            <div class="h-56 bg-zinc-800 flex items-center justify-center">
-                <i class="fas fa-couch text-5xl text-zinc-700"></i>
-            </div>
-            <div class="p-6">
-                <h3 class="font-semibold text-xl">Mesa de Centro Rústica</h3>
-                <p class="text-zinc-500 text-sm mt-2 mb-6">Madera maciza de pino con acabado mate.</p>
-                <div class="flex justify-between items-center">
-                    <span class="text-2xl font-bold wood-accent">$1,200</span>
-                    <button onclick="addToCart('Mesa de Centro', 1200)" class="bg-wood text-black px-5 py-2.5 rounded-full font-bold hover:scale-105 transition-transform">
-                        Añadir <i class="fas fa-cart-plus ml-1"></i>
-                    </button>
+<section id="ubicacion" class="mt-24 px-6 max-w-4xl mx-auto reveal mb-20">
+    <div class="pink-glass rounded-[2.5rem] p-8 md:p-10 border-b-4 border-b-pink-main/30">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            
+            <div>
+                <h3 class="text-2xl font-bold italic mb-6">Visita nuestro <span class="text-pink">Taller</span></h3>
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-pink/10 flex items-center justify-center shrink-0">
+                        <i class="fas fa-map-marker-alt text-pink"></i>
+                    </div>
+                    <div>
+                        <p class="text-zinc-300 text-sm leading-relaxed">
+                            Av 604, Agrupamiento I 16, Unidad Habitacional, Narciso Bassols, Gustavo A. Madero, 07980 Ciudad de México, CDMX
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-pink/10 flex items-center justify-center shrink-0">
+                        <i class="fas fa-clock text-pink"></i>
+                    </div>
+                    <div>
+                        <p class="text-zinc-300 text-xs uppercase tracking-widest font-bold">Horario de Atención</p>
+                        <p class="text-zinc-500 text-xs italic">Lunes a Sábado - Previa cita por WhatsApp</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl">
-            <div class="h-56 bg-zinc-800 flex items-center justify-center">
-                <i class="fas fa-archive text-5xl text-zinc-700"></i>
-            </div>
-            <div class="p-6">
-                <h3 class="font-semibold text-xl">Estante Flotante Roble</h3>
-                <p class="text-zinc-500 text-sm mt-2 mb-6">Minimalista, soporta hasta 15kg de peso.</p>
-                <div class="flex justify-between items-center">
-                    <span class="text-2xl font-bold wood-accent">$350</span>
-                    <button onclick="addToCart('Estante Flotante', 350)" class="bg-wood text-black px-5 py-2.5 rounded-full font-bold hover:scale-105 transition-transform">
-                        Añadir <i class="fas fa-cart-plus ml-1"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl border-t-2 border-t-yellow-500/30">
-    <div class="h-56 bg-zinc-800 flex items-center justify-center relative">
-        <i class="fas fa-tools text-5xl text-zinc-700"></i>
-        <span class="absolute top-4 right-4 bg-yellow-600 text-black text-[10px] font-bold px-2 py-1 rounded-full uppercase">Personalizado</span>
-    </div>
-    <div class="p-6">
-        <h3 class="font-semibold text-xl">Proyecto a Medida</h3>
-        <p class="text-zinc-500 text-sm mt-2 mb-6">¿Tienes una idea? La fabricamos según tus necesidades y espacio.</p>
-        <div class="flex flex-col gap-3">
-            <span class="text-sm font-medium text-yellow-500 italic">Precio según diseño</span>
-            <button onclick="orderCustom('Proyecto a Medida')" class="w-full border border-wood wood-accent py-3 rounded-2xl font-bold hover:bg-wood hover:text-black transition-all">
-                <i class="fab fa-whatsapp mr-2"></i> Cotizar por WhatsApp
-            </button>
-        </div>
-    </div>
+            <div class="flex flex-col gap-4">
+    <a href="https://www.google.com/maps/search/?api=1&query=Av+604+Agrupamiento+I+16+Narciso+Bassols+Gustavo+A+Madero" 
+       target="_blank" 
+       class="bg-zinc-900 border border-pink-main/30 text-white py-4 rounded-2xl font-bold text-xs tracking-widest flex items-center justify-center gap-3 hover:bg-pink hover:text-black transition-all">
+        <i class="fas fa-directions text-lg"></i> CÓMO LLEGAR (MAPS)
+    </a>
+    
+    <button onclick="orderVisit()" class="btn-pink py-4 rounded-2xl font-bold text-xs tracking-widest flex items-center justify-center gap-3">
+        <i class="fab fa-whatsapp text-lg"></i> AGENDAR VISITA
+    </button>
+    
+    <p class="text-[9px] text-zinc-600 text-center uppercase tracking-[0.2em]">📍 Ubicados en el corazón de la GAM</p>
 </div>
-
-        </main>
-
-    <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-zinc-900/95 backdrop-blur-md border-t border-zinc-700 p-6 flex flex-col sm:flex-row justify-between items-center gap-4 transition-all duration-500 translate-y-full opacity-0">
-        <div class="text-center sm:text-left">
-            <p class="text-xs text-gray-400 uppercase tracking-widest">Tu pedido actual:</p>
-            <p id="total-price" class="text-2xl font-bold wood-accent">$0</p>
-        </div>
-        
-        <div class="flex items-center gap-3 w-full sm:w-auto">
-            <button onclick="clearCart()" class="flex-1 sm:flex-none border border-red-500/50 text-red-500 px-4 py-3 rounded-2xl font-semibold hover:bg-red-500 hover:text-white transition">
-                <i class="fas fa-trash-alt"></i> Vaciar
-            </button>
-            <button onclick="sendWhatsApp()" class="flex-[2] sm:flex-none bg-green-600 text-white px-8 py-3 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-green-900/20">
-                <i class="fab fa-whatsapp text-xl"></i> Pedir por WhatsApp
-            </button>
+            
         </div>
     </div>
+</section>
+
+    <section id="mi-trabajo" class="mt-32 px-6 max-w-5xl mx-auto reveal">
+        <h2 class="text-center text-3xl font-bold italic mb-12 uppercase tracking-widest">Mi Trabajo</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div class="h-64 rounded-2xl overflow-hidden pink-glass"><img src="trabajo1.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+            <div class="h-64 rounded-2xl overflow-hidden pink-glass md:row-span-2"><img src="trabajo4.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+            <div class="h-64 rounded-2xl overflow-hidden pink-glass"><img src="trabajo2.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+            <div class="h-64 rounded-2xl overflow-hidden pink-glass"><img src="trabajo3.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div>
+            <div class="h-64 rounded-2xl overflow-hidden pink-glass bg-zinc-900 flex items-center justify-center p-6 text-center italic text-pink text-xs border border-pink-main/20">
+                Cada pieza cuenta una historia diferente.
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-32 px-6 max-w-4xl mx-auto mb-20 reveal">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center p-8 pink-glass rounded-3xl">
+                <i class="fas fa-tree text-pink text-2xl mb-4"></i>
+                <h4 class="font-bold text-[10px] uppercase tracking-widest mb-2">Madera Selecta</h4>
+                <p class="text-[10px] text-zinc-500">Pino nacional y maderas nobles de alta calidad.</p>
+            </div>
+            <div class="text-center p-8 pink-glass rounded-3xl border-pink-main/30">
+                <i class="fas fa-star text-pink text-2xl mb-4"></i>
+                <h4 class="font-bold text-[10px] uppercase tracking-widest mb-2">Acabado Premium</h4>
+                <p class="text-[10px] text-zinc-500">Técnicas de lijado y sellado para máxima suavidad.</p>
+            </div>
+            <div class="text-center p-8 pink-glass rounded-3xl">
+                <i class="fas fa-shield-heart text-pink text-2xl mb-4"></i>
+                <h4 class="font-bold text-[10px] uppercase tracking-widest mb-2">Durabilidad</h4>
+                <p class="text-[10px] text-zinc-500">Muebles diseñados para pasar de generación en generación.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-bar" class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-white text-black p-4 rounded-3xl flex justify-between items-center shadow-[0_20px_40px_rgba(255,133,162,0.4)] transition-all duration-700 translate-y-40 opacity-0 z-[60]">
+        <div class="pl-4">
+            <p id="total-price" class="text-2xl font-black text-pink-main">$0</p>
+        </div>
+        <div class="flex gap-2">
+            <button onclick="clearCart()" class="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center text-zinc-400 hover:text-red-500 transition-colors">
+                <i class="fas fa-trash-alt text-sm"></i>
+            </button>
+            <button onclick="sendWhatsApp()" class="btn-pink px-8 py-3 rounded-2xl font-bold text-[10px] tracking-widest uppercase">PEDIR AHORA</button>
+        </div>
+    </div>
+
+    <div class="fixed bottom-8 right-8 z-50">
+        <button onclick="orderEmergency()" class="w-14 h-14 bg-red-500 text-white rounded-full shadow-lg hover:scale-110 transition-all flex items-center justify-center">
+            <i class="fas fa-tools"></i>
+        </button>
+    </div>
+
+    <footer class="p-16 text-center">
+        <p class="text-[9px] text-zinc-600 tracking-[0.5em] uppercase"> 2026 @SantiagoPsicoDev | Autonomía Digital</p>
+    </footer>
 
     <script>
         let cart = [];
@@ -169,76 +333,89 @@
         function updateCartUI() {
             const bar = document.getElementById('cart-bar');
             const totalText = document.getElementById('total-price');
-            
             totalText.innerText = `$${total.toLocaleString()}`;
 
             if (cart.length > 0) {
-                bar.classList.remove('translate-y-full', 'opacity-0');
+                bar.classList.remove('translate-y-40', 'opacity-0');
             } else {
-                bar.classList.add('translate-y-full', 'opacity-0');
+                bar.classList.add('translate-y-40', 'opacity-0');
             }
         }
 
         function sendWhatsApp() {
             const items = cart.join(", ");
-            const msg = `¡Hola Arte Brend! 👋 Me gustaría encargar: ${items}. Total: $${total}. ¿Cómo procedemos?`;
+            const msg = `¡Hola Arte Brend! 🌸 Me interesan estas piezas: ${items}. Total: $${total}. ¿Me dan detalles?`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
-        function orderCustom(itemName) {
-    const customMsg = `¡Hola Arte Brend! 👋 Me interesa cotizar un trabajo personalizado: ${itemName}. ¿Me podrían dar más información?`;
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(customMsg)}`, '_blank');
+
+        function orderCustom(item) {
+            const msg = `¡Hola! 🌸 Quiero una cotización para un trabajo personalizado de carpintería: ${item}.`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function orderEmergency() {
+            const msg = "¡Hola Arte Brend! 🚨 Tengo una emergencia con un mueble o puerta. ¿Pueden apoyarme?";
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+        function orderVisit() {
+    const visitMsg = "Hola Brenda, vi tu ubicación en la web y me gustaría visitarte en el taller para platicar sobre un proyecto. 🌸🪵";
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(visitMsg)}`, '_blank');
 }
-    </script>
 
-    <section class="mt-20 px-6 max-w-4xl mx-auto mb-20">
-    <h2 class="text-xl font-bold tracking-widest uppercase text-center mb-10 wood-accent">La materia prima</h2>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+        function createSawdust() {
+    const particle = document.createElement('div');
+    particle.classList.add('sawdust');
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="bg-zinc-900/30 border border-zinc-800 p-6 rounded-3xl text-center group hover:border-wood transition-colors">
-            <div class="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-wood transition-colors">
-                <i class="fas fa-tree text-2xl wood-accent group-hover:text-black"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">Pino Nacional</h3>
-            <p class="text-xs text-zinc-500 leading-relaxed">Nuestra opción más versátil. Madera clara, resistente y perfecta para acabados rústicos o vintage.</p>
-        </div>
+    // Tamaños variados para que parezca aserrín real
+    const width = Math.random() * (6 - 2) + 2 + 'px';
+    const height = Math.random() * (10 - 4) + 4 + 'px';
+    particle.style.width = width;
+    particle.style.height = height;
+    
+    // Posición inicial aleatoria en el ancho de la pantalla
+    particle.style.left = Math.random() * 100 + 'vw';
+    
+    // Opacidad aleatoria para dar profundidad
+    particle.style.opacity = Math.random() * (0.8 - 0.3) + 0.3;
+    
+    // Velocidad de caída aleatoria (entre 3 y 7 segundos)
+    const duration = Math.random() * (7 - 3) + 3;
+    
+    // Animación de caída con rotación (como si flotara en el aire)
+    const animation = particle.animate([
+        { 
+            transform: 'translateY(0vh) rotate(0deg) translateX(0px)', 
+            opacity: particle.style.opacity 
+        },
+        { 
+            transform: `translateY(105vh) rotate(${Math.random() * 720}deg) translateX(${Math.random() * 100 - 50}px)`, 
+            opacity: 0 
+        }
+    ], {
+        duration: duration * 1000,
+        easing: 'linear'
+    });
 
-        <div class="bg-zinc-900/30 border border-zinc-800 p-6 rounded-3xl text-center group hover:border-wood transition-colors">
-            <div class="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-wood transition-colors">
-                <i class="fas fa-crown text-2xl wood-accent group-hover:text-black"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">Maderas Nobles</h3>
-            <p class="text-xs text-zinc-500 leading-relaxed">Roble, Cedro o Nogal. Para quienes buscan elegancia suprema y una durabilidad que desafía al tiempo.</p>
-        </div>
+    document.body.appendChild(particle);
 
-        <div class="bg-zinc-900/30 border border-zinc-800 p-6 rounded-3xl text-center group hover:border-wood transition-colors">
-            <div class="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-wood transition-colors">
-                <i class="fas fa-shield-alt text-2xl wood-accent group-hover:text-black"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">Acabado Premium</h3>
-            <p class="text-xs text-zinc-500 leading-relaxed">Selladores de alta gama y ceras naturales que protegen la madera contra la humedad y el desgaste.</p>
-        </div>
+    // Se elimina al terminar para no saturar la memoria (¡cuidando esos 40GB de RAM! 😉)
+    animation.onfinish = () => particle.remove();
+}
 
-    </div>
-</section>
-
-    <div class="fixed bottom-24 left-6 z-50">
-    <button onclick="orderEmergency()" class="group relative flex items-center justify-center w-14 h-14 bg-red-600 text-white rounded-full shadow-2xl hover:bg-red-700 transition-all duration-300 hover:w-48 overflow-hidden">
-        <div class="flex items-center justify-center w-14 h-14 shrink-0">
-            <i class="fas fa-first-aid text-xl animate-pulse"></i>
-        </div>
-        <span class="absolute left-14 whitespace-nowrap font-bold text-sm pr-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            ¿Algo se rompió?
-        </span>
-    </button>
-</div>
-
-<script>
-    function orderEmergency() {
-        const emergencyMsg = "¡Hola Arte Brend! 🚨 Tengo una emergencia con un mueble/puerta que se rompió. ¿Podrían ayudarme con una reparación?";
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(emergencyMsg)}`, '_blank');
-    }
-</script>
-<p>2026 @SantiagoPsicoDev | Autonomia Digital</p>
+// Crea una viruta cada 150ms para un efecto constante pero suave
+setInterval(createSawdust, 150);
+    </script>
 </body>
 </html>
